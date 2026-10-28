@@ -51,7 +51,7 @@ function lastName(name: string) {
 
 function OvernightBadge() {
 	return (
-		<span className="group/badge relative flex items-center gap-1 rounded-full bg-indigo-500/10 px-2 py-0.5 text-[11px] font-medium text-indigo-300">
+		<span className="group/badge relative flex items-center gap-1 rounded-full bg-indigo-500/10 px-2 py-0.5 text-[11px] font-medium text-moon">
 			<Moon size={11} />
 			Overnight
 			<span
@@ -171,7 +171,7 @@ function HubPage() {
 								className="h-full w-full object-cover"
 							/>
 						) : (
-							<User size={22} color="#22D3EE" />
+							<User size={22} className="text-cyan" />
 						)}
 					</Link>
 				</div>
@@ -183,7 +183,7 @@ function HubPage() {
 					type="button"
 					onClick={() => checkin.mutate({})}
 					disabled={checkin.isPending}
-					className="flex h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-cyan text-background disabled:opacity-50"
+					className="flex h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-primary text-primary-foreground disabled:opacity-50"
 				>
 					<MapPin size={18} />
 					<span className="text-[15px] font-semibold">
@@ -194,7 +194,7 @@ function HubPage() {
 
 			{hub && isCheckedIn && (
 				<div className="flex h-12 w-full items-center justify-center gap-2 rounded-xl border border-cyan/20 bg-cyan/10">
-					<CheckCircle size={18} color="#22D3EE" />
+					<CheckCircle size={18} className="text-cyan" />
 					<span className="text-sm font-medium text-cyan">
 						You're checked in
 					</span>
@@ -218,7 +218,7 @@ function HubPage() {
 
 			{visitors && visitors.length === 0 && (
 				<div className="flex flex-1 flex-col items-center justify-center gap-3">
-					<Users size={48} color="#475569" />
+					<Users size={48} className="text-text-muted" />
 					<span className="text-sm text-text-tertiary">
 						Nobody is in the hub right now
 					</span>
@@ -257,7 +257,7 @@ function HubPage() {
 					</div>
 					{mainList.length === 0 ? (
 						<div className="flex flex-1 flex-col items-center justify-center gap-3">
-							<Moon size={48} color="#475569" />
+							<Moon size={48} className="text-text-muted" />
 							<span className="text-sm text-text-tertiary">
 								Only overnight check-ins so far
 							</span>

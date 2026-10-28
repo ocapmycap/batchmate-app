@@ -1,7 +1,9 @@
+import { useSyncExternalStore } from "react"
 import { Platform, useColorScheme } from "react-native"
 
-// Mirrors the CSS palettes in apps/mobile/global.css for props that take a raw
-// color string (icon `color`, `placeholderTextColor`, navigator options).
+// Mirrors the CSS palettes in apps/mobile/global.css and apps/web/src/index.css
+// for props that take a raw color string (icon `color`, `placeholderTextColor`,
+// navigator options).
 const dark = {
 	background: "#0A0F1C",
 	surface: "#0F172A",
@@ -34,9 +36,32 @@ const light: typeof dark = {
 
 export type ThemeColors = typeof dark
 
+// On web the theme is driven by a .light class on <html> (see
+// apps/web/index.html), so watch that rather than the browser's scheme.
+function subscribeWebTheme(onChange: () => void) {
+	if (Platform.OS !== "web") return () => {}
+	const observer = new MutationObserver(onChange)
+	observer.observe(document.documentElement, {
+		attributes: true,
+		attributeFilter: ["class"],
+	})
+	return () => observer.disconnect()
+}
+
+function isWebLight() {
+	return (
+		Platform.OS === "web" &&
+		document.documentElement.classList.contains("light")
+	)
+}
+
 export function useThemeColors(): ThemeColors {
 	const scheme = useColorScheme()
-	// The web app ships only the dark palette, so ignore the browser setting there.
-	if (Platform.OS === "web") return dark
+	const webLight = useSyncExternalStore(
+		subscribeWebTheme,
+		isWebLight,
+		() => false,
+	)
+	if (Platform.OS === "web") return webLight ? light : dark
 	return scheme === "light" ? light : dark
 }

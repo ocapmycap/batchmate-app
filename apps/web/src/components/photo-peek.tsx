@@ -56,7 +56,7 @@ export function PhotoPeek({
 						style={{ objectPosition: AVATAR_FACE_OBJECT_POSITION }}
 					/>
 				) : (
-					<User size={120} color="#22D3EE" />
+					<User size={120} className="text-cyan" />
 				)}
 			</div>
 			<div className="flex flex-col items-center gap-1.5">
