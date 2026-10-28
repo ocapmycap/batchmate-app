@@ -19,24 +19,33 @@ export function ThemePicker() {
 			<Text className="font-mono text-[11px] font-semibold tracking-widest text-text-tertiary">
 				APPEARANCE
 			</Text>
-			<View className="flex-row gap-1 rounded-xl bg-card p-1">
-				{OPTIONS.map((o) => (
-					<Pressable
-						key={o.value}
-						onPress={() => setPref(o.value)}
-						className={`flex-1 items-center rounded-lg py-2 ${
-							pref === o.value ? "bg-cyan/15" : ""
-						}`}
-					>
-						<Text
-							className={`text-sm font-medium ${
-								pref === o.value ? "text-primary" : "text-text-secondary"
+			<View
+				accessibilityRole="radiogroup"
+				className="flex-row gap-1 rounded-xl bg-card p-1"
+			>
+				{OPTIONS.map((o) => {
+					const selected = pref === o.value
+					return (
+						<Pressable
+							key={o.value}
+							onPress={() => setPref(o.value)}
+							accessibilityRole="radio"
+							accessibilityLabel={`${o.label} appearance`}
+							accessibilityState={{ selected, checked: selected }}
+							className={`flex-1 items-center rounded-lg py-2 ${
+								selected ? "bg-cyan/15" : ""
 							}`}
 						>
-							{o.label}
-						</Text>
-					</Pressable>
-				))}
+							<Text
+								className={`text-sm font-medium ${
+									selected ? "text-primary" : "text-text-secondary"
+								}`}
+							>
+								{o.label}
+							</Text>
+						</Pressable>
+					)
+				})}
 			</View>
 		</View>
 	)
