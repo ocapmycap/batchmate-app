@@ -6,9 +6,10 @@ export type ThemePreference = "system" | "light" | "dark"
 
 const KEY = "batchmate_theme"
 
+// The app is dark by default; light and system are opt-in from the profile.
 function read(): ThemePreference {
 	const stored = SecureStore.getItem(KEY)
-	return stored === "light" || stored === "dark" ? stored : "system"
+	return stored === "light" || stored === "system" ? stored : "dark"
 }
 
 function apply(pref: ThemePreference) {
