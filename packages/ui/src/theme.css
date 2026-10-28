@@ -32,6 +32,9 @@
 	--color-text-muted: var(--text-muted);
 	--color-divider: var(--divider);
 	--color-cyan: var(--cyan);
+	--color-moon: var(--moon);
+	--color-success: var(--success);
+	--color-error: var(--error);
 	--radius-sm: 0.25rem;
 	--radius-md: 0.375rem;
 	--radius-lg: 0.5rem;

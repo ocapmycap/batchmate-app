@@ -107,10 +107,10 @@ export default function DemoHubScreen() {
 				</View>
 			) : (
 				<Pressable
-					className="h-12 flex-row items-center justify-center gap-2 rounded-xl bg-cyan"
+					className="h-12 flex-row items-center justify-center gap-2 rounded-xl bg-primary"
 					onPress={() => setCheckedIn(true)}
 				>
-					<Text className="text-[15px] font-semibold text-background">
+					<Text className="text-[15px] font-semibold text-primary-foreground">
 						Check in to the Hub
 					</Text>
 				</Pressable>

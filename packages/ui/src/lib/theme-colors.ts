@@ -23,13 +23,13 @@ const light: typeof dark = {
 	card: "#FFFFFF",
 	border: "#E2E8F0",
 	foreground: "#0F172A",
-	primary: "#0891B2",
+	primary: "#0A6680",
 	primaryForeground: "#FFFFFF",
 	textSecondary: "#475569",
-	textTertiary: "#64748B",
-	textMuted: "#94A3B8",
-	danger: "#DC2626",
-	moon: "#6366F1",
+	textTertiary: "#556377",
+	textMuted: "#606F85",
+	danger: "#B91C1C",
+	moon: "#4F46E5",
 }
 
 export type ThemeColors = typeof dark

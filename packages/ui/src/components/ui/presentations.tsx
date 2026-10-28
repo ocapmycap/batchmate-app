@@ -129,12 +129,12 @@ function PresentationsList({
 						/>
 					</View>
 					<Pressable
-						className="h-10 flex-row items-center justify-center gap-2 rounded-md bg-cyan disabled:opacity-50"
+						className="h-10 flex-row items-center justify-center gap-2 rounded-md bg-primary disabled:opacity-50"
 						onPress={submitCreate}
 						disabled={!!isCreating || !presenterValue.trim()}
 					>
 						<Plus size={16} color={c.primaryForeground} />
-						<Text className="text-sm font-semibold text-background">
+						<Text className="text-sm font-semibold text-primary-foreground">
 							{isCreating ? "Adding..." : "Sign up"}
 						</Text>
 					</Pressable>
@@ -185,11 +185,11 @@ function PresentationsList({
 								/>
 								<View className="flex-row gap-2">
 									<Pressable
-										className="h-9 flex-1 items-center justify-center rounded-md bg-cyan disabled:opacity-50"
+										className="h-9 flex-1 items-center justify-center rounded-md bg-primary disabled:opacity-50"
 										onPress={() => submitEdit(p.id)}
 										disabled={!!isUpdating || !editPresenter.trim()}
 									>
-										<Text className="text-sm font-semibold text-background">
+										<Text className="text-sm font-semibold text-primary-foreground">
 											{isUpdating ? "Saving..." : "Save"}
 										</Text>
 									</Pressable>

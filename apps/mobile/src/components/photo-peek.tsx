@@ -54,7 +54,7 @@ export function PhotoPeek({
 					<Text className="text-center text-2xl font-semibold text-white">
 						{name}
 					</Text>
-					<Text className="text-center font-mono text-sm text-text-tertiary">
+					<Text className="text-center font-mono text-sm text-white/60">
 						{getSubtitle(batch, stintType ?? null)}
 					</Text>
 				</View>

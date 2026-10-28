@@ -63,7 +63,7 @@ function OvernightBadge() {
 			hitSlop={6}
 		>
 			<Moon size={11} color={c.moon} />
-			<Text className="text-[11px] font-medium text-indigo-300">Overnight</Text>
+			<Text className="text-[11px] font-medium text-moon">Overnight</Text>
 		</Pressable>
 	)
 }
@@ -161,12 +161,12 @@ export default function HubScreen() {
 
 			{hub && !isCheckedIn && (
 				<Pressable
-					className="h-12 flex-row items-center justify-center gap-2 rounded-xl bg-cyan"
+					className="h-12 flex-row items-center justify-center gap-2 rounded-xl bg-primary"
 					onPress={() => checkin.mutate({})}
 					disabled={checkin.isPending}
 				>
 					<MapPin size={18} color={c.primaryForeground} />
-					<Text className="text-[15px] font-semibold text-background">
+					<Text className="text-[15px] font-semibold text-primary-foreground">
 						{checkin.isPending ? "Checking in..." : "Check in to the Hub"}
 					</Text>
 				</Pressable>

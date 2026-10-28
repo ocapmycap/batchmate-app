@@ -484,13 +484,13 @@ export function StudyFacesGame({
 		if (correctPick === i) {
 			return {
 				container: "border border-green-500/40 bg-green-500/15",
-				label: "text-green-300",
+				label: "text-success",
 			}
 		}
 		if (incorrectPicks.includes(i)) {
 			return {
 				container: "border border-rose-500/40 bg-rose-500/15 opacity-60",
-				label: "text-rose-300",
+				label: "text-error",
 			}
 		}
 		if (correctPick !== null) {
@@ -531,7 +531,10 @@ export function StudyFacesGame({
 							<Text
 								className="font-mono text-lg font-semibold"
 								style={{
-									color: streak > 0 ? progress.nextColor : c.textTertiary,
+									color:
+										streak > 0
+											? (progress.nextColor ?? c.primary)
+											: c.textTertiary,
 								}}
 							>
 								{streak}
@@ -558,15 +561,14 @@ export function StudyFacesGame({
 					<View
 						className="h-1 w-full overflow-hidden rounded-full"
 						style={{
-							backgroundColor:
-								progress.prev > 0 ? progress.prevColor : c.border,
+							backgroundColor: progress.prevColor ?? c.border,
 						}}
 					>
 						<View
 							className="h-full"
 							style={{
 								width: streak > 0 ? `${progress.progress}%` : "0%",
-								backgroundColor: progress.nextColor,
+								backgroundColor: progress.nextColor ?? c.primary,
 							}}
 						/>
 					</View>

@@ -63,7 +63,7 @@ export function PhotoPeek({
 				<span className="text-center text-2xl font-semibold text-white">
 					{name}
 				</span>
-				<span className="text-center font-mono text-sm text-text-tertiary">
+				<span className="text-center font-mono text-sm text-white/60">
 					{getSubtitle(batch, stintType ?? null)}
 				</span>
 			</div>
